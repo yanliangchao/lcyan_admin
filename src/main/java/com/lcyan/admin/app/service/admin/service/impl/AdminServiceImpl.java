@@ -1,6 +1,6 @@
 package com.lcyan.admin.app.service.admin.service.impl;
 
-import com.lcyan.admin.app.service.admin.model.AdminModel;
+import com.lcyan.admin.app.service.admin.domain.AdminModel;
 import com.lcyan.admin.app.service.admin.repository.AdminRepository;
 import com.lcyan.admin.app.service.admin.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;

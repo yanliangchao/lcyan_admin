@@ -1,6 +1,6 @@
 package com.lcyan.admin.app.service.admin.service;
 
-import com.lcyan.admin.app.service.admin.model.AdminModel;
+import com.lcyan.admin.app.service.admin.domain.AdminModel;
 
 /**
  * @author Yan Liangchao

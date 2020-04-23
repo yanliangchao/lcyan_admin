@@ -1,6 +1,6 @@
 package com.lcyan.admin.app.service.admin.repository;
 
-import com.lcyan.admin.app.service.admin.model.AdminModel;
+import com.lcyan.admin.app.service.admin.domain.AdminModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

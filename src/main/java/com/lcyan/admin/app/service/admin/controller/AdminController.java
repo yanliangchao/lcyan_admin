@@ -2,8 +2,8 @@ package com.lcyan.admin.app.service.admin.controller;
 
 
 import com.lcyan.admin.app.boot.restultUtils.ResponseDTO;
+import com.lcyan.admin.app.service.admin.domain.AdminModel;
 import com.lcyan.admin.app.service.admin.service.AdminService;
-import com.lcyan.admin.app.service.admin.model.AdminModel;
 import io.kubernetes.client.ApiException;
 import io.kubernetes.client.apis.CoreV1Api;
 import io.kubernetes.client.models.V1PodList;
@@ -19,7 +19,6 @@ import java.util.Date;
 @Api(value = "获取Admin", tags = "AdminController")
 @Controller("admin")
 @RequestMapping("/admin")
-@CrossOrigin
 public class AdminController {
 
     @Autowired
@@ -30,6 +29,7 @@ public class AdminController {
     @RequestMapping(value = "getAdmin/{info}", method= RequestMethod.GET)
     @ResponseBody
     public ResponseDTO getAdmin(@ApiParam(name = "info", value = "字符串",required = true,defaultValue ="info") @PathVariable("info") String info) {
+        //MyUserDetails myUserDetails= (MyUserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
 
         return ResponseDTO.ok().data("info",info).message("获取admin");
     }
