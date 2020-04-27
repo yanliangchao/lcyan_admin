@@ -13,6 +13,7 @@ import com.lcyan.admin.app.service.system.service.dto.RoleSmallDto;
 import com.lcyan.admin.app.service.system.service.dto.UserDto;
 import com.lcyan.admin.app.service.system.service.mapper.RoleMapper;
 import com.lcyan.admin.app.service.system.service.mapper.RoleSmallMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -30,25 +31,23 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * @author Zheng Jie
- * @date 2018-12-03
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Service
 @CacheConfig(cacheNames = "role")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class RoleServiceImpl implements RoleService {
 
-    private final RoleRepository roleRepository;
+    @Autowired
+    private RoleRepository roleRepository;
+    @Autowired
+    private RoleMapper roleMapper;
+    @Autowired
+    private RoleSmallMapper roleSmallMapper;
 
-    private final RoleMapper roleMapper;
-
-    private final RoleSmallMapper roleSmallMapper;
-
-    public RoleServiceImpl(RoleRepository roleRepository, RoleMapper roleMapper, RoleSmallMapper roleSmallMapper) {
-        this.roleRepository = roleRepository;
-        this.roleMapper = roleMapper;
-        this.roleSmallMapper = roleSmallMapper;
-    }
 
     @Override
     @Cacheable
@@ -106,7 +105,6 @@ public class RoleServiceImpl implements RoleService {
         role.setName(resources.getName());
         role.setRemark(resources.getRemark());
         role.setDataScope(resources.getDataScope());
-        role.setDepts(resources.getDepts());
         role.setLevel(resources.getLevel());
         role.setPermission(resources.getPermission());
         roleRepository.save(role);

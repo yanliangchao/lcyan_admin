@@ -16,7 +16,10 @@ import java.io.IOException;
 import java.util.Set;
 
 /**
- * @author Zheng Jie
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @RestController
 @RequestMapping("/auth/online")

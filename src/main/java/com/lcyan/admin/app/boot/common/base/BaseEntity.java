@@ -17,8 +17,10 @@ import java.lang.reflect.Field;
 import java.sql.Timestamp;
 
 /**
- * @author Zheng Jie
- * @Date 2019年10月24日20:46:32
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 14:03
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Getter
 @Setter

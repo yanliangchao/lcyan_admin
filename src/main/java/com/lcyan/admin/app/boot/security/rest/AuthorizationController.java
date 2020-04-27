@@ -34,9 +34,10 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-23
- * 授权、根据token获取用户详细信息
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Slf4j
 @RestController

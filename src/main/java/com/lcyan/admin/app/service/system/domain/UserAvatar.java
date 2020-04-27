@@ -11,8 +11,10 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
- * @author Zheng Jie
- * @date 2019年9月7日 16:16:59
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Entity
 @Getter

@@ -12,6 +12,7 @@ import com.lcyan.admin.app.boot.logging.service.mapper.LogErrorMapper;
 import com.lcyan.admin.app.boot.logging.service.mapper.LogSmallMapper;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -27,24 +28,22 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-24
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 10:53
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class LogServiceImpl implements LogService {
 
-    private final LogRepository logRepository;
+    @Autowired
+    private LogRepository logRepository;
+    @Autowired
+    private LogErrorMapper logErrorMapper;
+    @Autowired
+    private LogSmallMapper logSmallMapper;
 
-    private final LogErrorMapper logErrorMapper;
-
-    private final LogSmallMapper logSmallMapper;
-
-    public LogServiceImpl(LogRepository logRepository, LogErrorMapper logErrorMapper, LogSmallMapper logSmallMapper) {
-        this.logRepository = logRepository;
-        this.logErrorMapper = logErrorMapper;
-        this.logSmallMapper = logSmallMapper;
-    }
 
     @Override
     public Object queryAll(LogQueryCriteria criteria, Pageable pageable){

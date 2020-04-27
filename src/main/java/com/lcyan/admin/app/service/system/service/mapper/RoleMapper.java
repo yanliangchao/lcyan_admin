@@ -8,10 +8,12 @@ import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-23
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
  */
-@Mapper(componentModel = "spring", uses = {MenuMapper.class, DeptMapper.class}, unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring", uses = {MenuMapper.class}, unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface RoleMapper extends BaseMapper<RoleDto, Role> {
 
 }

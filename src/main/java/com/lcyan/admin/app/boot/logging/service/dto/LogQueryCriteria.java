@@ -7,9 +7,10 @@ import java.sql.Timestamp;
 import java.util.List;
 
 /**
- * 日志查询类
- * @author Zheng Jie
- * @date 2019-6-4 09:23:07
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 10:53
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Data
 public class LogQueryCriteria {

@@ -5,6 +5,7 @@ import com.lcyan.admin.app.boot.security.config.SecurityProperties;
 import com.lcyan.admin.app.boot.security.service.dto.JwtUserDto;
 import com.lcyan.admin.app.boot.security.service.dto.OnlineUserDto;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -14,20 +15,19 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * @author Zheng Jie
- * @Date 2019年10月26日21:56:27
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Service
 @Slf4j
 public class OnlineUserService {
 
-    private final SecurityProperties properties;
+    @Autowired
+    private  SecurityProperties properties;
+    @Autowired
     private RedisUtils redisUtils;
-
-    public OnlineUserService(SecurityProperties properties, RedisUtils redisUtils) {
-        this.properties = properties;
-        this.redisUtils = redisUtils;
-    }
 
     /**
      * 保存在线用户信息
@@ -36,13 +36,13 @@ public class OnlineUserService {
      * @param request /
      */
     public void save(JwtUserDto jwtUserDto, String token, HttpServletRequest request){
-        String job = jwtUserDto.getUser().getDept().getName() + "/" + jwtUserDto.getUser().getJob().getName();
+        //String job = jwtUserDto.getUser().getDept().getName() + "/" + jwtUserDto.getUser().getJob().getName();
         String ip = StringUtils.getIp(request);
         String browser = StringUtils.getBrowser(request);
         String address = StringUtils.getCityInfo(ip);
         OnlineUserDto onlineUserDto = null;
         try {
-            onlineUserDto = new OnlineUserDto(jwtUserDto.getUsername(), jwtUserDto.getUser().getNickName(), job, browser , ip, address, EncryptUtils.desEncrypt(token), new Date());
+            onlineUserDto = new OnlineUserDto(jwtUserDto.getUsername(), jwtUserDto.getUser().getNickName(), browser , ip, address, EncryptUtils.desEncrypt(token), new Date());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -115,7 +115,6 @@ public class OnlineUserService {
         for (OnlineUserDto user : all) {
             Map<String,Object> map = new LinkedHashMap<>();
             map.put("用户名", user.getUserName());
-            map.put("岗位", user.getJob());
             map.put("登录IP", user.getIp());
             map.put("登录地点", user.getAddress());
             map.put("浏览器", user.getBrowser());

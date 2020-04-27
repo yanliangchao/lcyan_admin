@@ -13,8 +13,10 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * @author Zheng Jie
- * @date 2019-6-4 14:59:48
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 14:03
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Slf4j
 @SuppressWarnings({"unchecked","all"})

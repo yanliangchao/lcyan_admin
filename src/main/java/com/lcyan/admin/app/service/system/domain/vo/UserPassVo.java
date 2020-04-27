@@ -3,9 +3,11 @@ package com.lcyan.admin.app.service.system.domain.vo;
 import lombok.Data;
 
 /**
- * 修改密码的 Vo 类
- * @author Zheng Jie
- * @date 2019年7月11日13:59:49
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
+ * 修改密码的Vo类
  */
 @Data
 public class UserPassVo {

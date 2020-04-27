@@ -20,7 +20,10 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
- * @author /
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Slf4j
 public class TokenFilter extends GenericFilterBean {

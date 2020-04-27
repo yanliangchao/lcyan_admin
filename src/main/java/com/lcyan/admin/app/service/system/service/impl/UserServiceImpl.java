@@ -13,6 +13,7 @@ import com.lcyan.admin.app.service.system.service.dto.RoleSmallDto;
 import com.lcyan.admin.app.service.system.service.dto.UserDto;
 import com.lcyan.admin.app.service.system.service.dto.UserQueryCriteria;
 import com.lcyan.admin.app.service.system.service.mapper.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -30,26 +31,26 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-23
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Service
 @CacheConfig(cacheNames = "user")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class UserServiceImpl implements UserService {
 
-    private final UserRepository userRepository;
-    private final UserMapper userMapper;
-    private final RedisUtils redisUtils;
-    private final UserAvatarRepository userAvatarRepository;
-    private final FileProperties properties;
-    public UserServiceImpl(UserRepository userRepository, UserMapper userMapper, RedisUtils redisUtils, UserAvatarRepository userAvatarRepository, FileProperties properties) {
-        this.userRepository = userRepository;
-        this.userMapper = userMapper;
-        this.redisUtils = redisUtils;
-        this.userAvatarRepository = userAvatarRepository;
-        this.properties = properties;
-    }
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private UserMapper userMapper;
+    @Autowired
+    private RedisUtils redisUtils;
+    @Autowired
+    private UserAvatarRepository userAvatarRepository;
+    @Autowired
+    private FileProperties properties;
 
     @Override
     @Cacheable
@@ -115,8 +116,6 @@ public class UserServiceImpl implements UserService {
         user.setEmail(resources.getEmail());
         user.setEnabled(resources.getEnabled());
         user.setRoles(resources.getRoles());
-        user.setDept(resources.getDept());
-        user.setJob(resources.getJob());
         user.setPhone(resources.getPhone());
         user.setNickName(resources.getNickName());
         user.setSex(resources.getSex());
@@ -205,8 +204,6 @@ public class UserServiceImpl implements UserService {
             map.put("状态", userDTO.getEnabled() ? "启用" : "禁用");
             map.put("手机号码", userDTO.getPhone());
             map.put("角色", roles);
-            map.put("部门", userDTO.getDept().getName());
-            map.put("岗位", userDTO.getJob().getName());
             map.put("最后修改密码的时间", userDTO.getLastPasswordResetTime());
             map.put("创建日期", userDTO.getCreateTime());
             list.add(map);

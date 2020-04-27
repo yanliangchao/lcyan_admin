@@ -9,10 +9,12 @@ import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-23
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
  */
-@Mapper(componentModel = "spring",uses = {RoleMapper.class, DeptMapper.class, JobMapper.class},unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring",uses = {RoleMapper.class},unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface UserMapper extends BaseMapper<UserDto, User> {
 
     /**

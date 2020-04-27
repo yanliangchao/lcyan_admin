@@ -5,9 +5,12 @@ import lombok.Data;
 
 import java.io.Serializable;
 
+
 /**
- * @author Zheng Jie
- * @date 2018-12-20
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Data
 @AllArgsConstructor

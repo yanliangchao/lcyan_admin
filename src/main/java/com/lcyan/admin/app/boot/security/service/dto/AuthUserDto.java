@@ -6,8 +6,10 @@ import lombok.Setter;
 import javax.validation.constraints.NotBlank;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-30
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Getter
 @Setter

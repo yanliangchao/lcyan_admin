@@ -6,6 +6,7 @@ import com.lcyan.admin.app.boot.logging.service.LogService;
 import com.lcyan.admin.app.boot.logging.service.dto.LogQueryCriteria;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,19 +17,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-24
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 10:53
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @RestController
 @RequestMapping("/api/logs")
 @Api(tags = "监控：日志管理")
 public class LogController {
 
-    private final LogService logService;
-
-    public LogController(LogService logService) {
-        this.logService = logService;
-    }
+    @Autowired
+    private LogService logService;
 
     @Log("导出数据")
     @ApiOperation("导出数据")

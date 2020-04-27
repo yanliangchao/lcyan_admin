@@ -18,8 +18,10 @@ import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-24
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 10:53
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Component
 @Aspect

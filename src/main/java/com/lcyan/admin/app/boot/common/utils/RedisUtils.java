@@ -1,5 +1,6 @@
 package com.lcyan.admin.app.boot.common.utils;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -11,20 +12,18 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author /
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 14:03
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Component
 @SuppressWarnings({"unchecked","all"})
 public class RedisUtils {
-
+    @Autowired
     private RedisTemplate<Object, Object> redisTemplate;
     @Value("${jwt.online-key}")
     private String onlineKey;
-
-    public RedisUtils(RedisTemplate<Object, Object> redisTemplate) {
-        this.redisTemplate = redisTemplate;
-    }
-
     // =============================common============================
 
     /**

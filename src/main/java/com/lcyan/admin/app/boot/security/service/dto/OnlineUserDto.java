@@ -7,8 +7,10 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 /**
- * 在线用户
- * @author Zheng Jie
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Data
 @AllArgsConstructor
@@ -24,11 +26,6 @@ public class OnlineUserDto {
      * 昵称
      */
     private String nickName;
-
-    /**
-     * 岗位
-     */
-    private String job;
 
     /**
      * 浏览器

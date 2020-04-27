@@ -10,9 +10,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
- * 获取当前登录的用户
- * @author Zheng Jie
- * @date 2019-01-17
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 14:03
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Slf4j
 public class SecurityUtils {

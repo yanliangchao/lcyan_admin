@@ -12,6 +12,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.data.redis.core.script.RedisScript;
@@ -22,18 +23,18 @@ import java.lang.reflect.Method;
 
 
 /**
- * @author /
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 14:03
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Aspect
 @Component
 public class LimitAspect {
 
-    private final RedisTemplate<Object,Object> redisTemplate;
+    @Autowired
+    private RedisTemplate<Object,Object> redisTemplate;
     private static final Logger logger = LoggerFactory.getLogger(LimitAspect.class);
-
-    public LimitAspect(RedisTemplate<Object,Object> redisTemplate) {
-        this.redisTemplate = redisTemplate;
-    }
 
     @Pointcut("@annotation(com.lcyan.admin.app.boot.common.annotation.Limit)")
     public void pointcut() {

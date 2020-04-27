@@ -13,10 +13,12 @@ import java.sql.Timestamp;
 import java.util.Objects;
 import java.util.Set;
 
+
 /**
- * 角色
- * @author Zheng Jie
- * @date 2018-11-22
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Entity
 @Table(name = "t_role")
@@ -55,10 +57,6 @@ public class Role implements Serializable {
     @ManyToMany
     @JoinTable(name = "t_roles_menus", joinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "menu_id",referencedColumnName = "id")})
     private Set<Menu> menus;
-
-    @ManyToMany
-    @JoinTable(name = "t_roles_depts", joinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "dept_id",referencedColumnName = "id")})
-    private Set<Dept> depts;
 
     @Column(name = "create_time")
     @CreationTimestamp

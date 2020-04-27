@@ -6,8 +6,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author Zheng Jie
- * @date 2019-6-4 13:52:30
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 14:03
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)

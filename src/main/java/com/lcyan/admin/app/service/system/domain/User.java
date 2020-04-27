@@ -15,8 +15,10 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-22
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
  */
 
 @Entity
@@ -67,14 +69,6 @@ public class User implements Serializable {
     @ManyToMany
     @JoinTable(name = "t_users_roles", joinColumns = {@JoinColumn(name = "user_id",referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")})
     private Set<Role> roles;
-
-    @OneToOne
-    @JoinColumn(name = "job_id")
-    private Job job;
-
-    @OneToOne
-    @JoinColumn(name = "dept_id")
-    private Dept dept;
 
     public @interface Update {}
 

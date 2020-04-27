@@ -5,9 +5,10 @@ import com.lcyan.admin.app.boot.common.exception.BadRequestException;
 import org.hibernate.validator.internal.constraintvalidators.hv.EmailValidator;
 
 /**
- * 验证工具
- * @author Zheng Jie
- * @date 2018-11-23
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 14:03
+ * @email liangchao.yan-ext@yanfeng.com
  */
 public class ValidationUtil{
 

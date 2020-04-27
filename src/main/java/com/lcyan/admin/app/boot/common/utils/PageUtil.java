@@ -8,9 +8,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 分页工具
- * @author Zheng Jie
- * @date 2018-12-10
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 14:03
+ * @email liangchao.yan-ext@yanfeng.com
  */
 public class PageUtil extends cn.hutool.core.util.PageUtil {
 

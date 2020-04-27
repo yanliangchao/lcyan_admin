@@ -7,8 +7,10 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
- * @author Zheng Jie
- * @Date 2019年10月24日20:48:53
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 14:03
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Getter
 @Setter

@@ -7,8 +7,10 @@ import java.sql.Timestamp;
 import java.util.Set;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-23
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Data
 public class RoleDto implements Serializable {
@@ -26,8 +28,6 @@ public class RoleDto implements Serializable {
     private String permission;
 
     private Set<MenuDto> menus;
-
-    private Set<DeptDto> depts;
 
     private Timestamp createTime;
 }

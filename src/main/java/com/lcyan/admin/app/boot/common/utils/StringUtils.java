@@ -17,8 +17,10 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * @author Zheng Jie
- * 字符串工具类, 继承org.apache.commons.lang3.StringUtils类
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 14:03
+ * @email liangchao.yan-ext@yanfeng.com
  */
 public class StringUtils extends org.apache.commons.lang3.StringUtils {
 

@@ -21,7 +21,10 @@ import java.util.Date;
 import java.util.stream.Collectors;
 
 /**
- * @author /
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Slf4j
 @Component

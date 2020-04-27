@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: admin
+  profiles:
+    active: "@spring.profiles.active@"
   main:
     allow-bean-definition-overriding: true
   datasource:
@@ -77,11 +79,7 @@ file:
   avatarMaxSize: 5
 
 ---
-spring:
-  profiles:
-    active: dev
+spring.profiles: dev
 
 ---
-spring:
-  profiles:
-    active: docker
+spring.profiles: docker

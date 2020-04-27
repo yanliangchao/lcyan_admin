@@ -12,8 +12,10 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author Zheng Jie
- * @date 2018-12-17
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
  */
 public interface MenuService {
 

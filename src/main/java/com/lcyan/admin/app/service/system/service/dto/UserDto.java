@@ -10,8 +10,10 @@ import java.util.Date;
 import java.util.Set;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-23
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Data
 public class UserDto implements Serializable {
@@ -40,13 +42,6 @@ public class UserDto implements Serializable {
 
     @ApiModelProperty(hidden = true)
     private Set<RoleSmallDto> roles;
-
-    @ApiModelProperty(hidden = true)
-    private JobSmallDto job;
-
-    private DeptSmallDto dept;
-
-    private Long deptId;
 
     private Timestamp createTime;
 }

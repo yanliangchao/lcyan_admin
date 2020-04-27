@@ -7,6 +7,12 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 
 import javax.servlet.Filter;
 
+/**
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 14:03
+ * @email liangchao.yan-ext@yanfeng.com
+ */
 
 @Slf4j
 @Configuration

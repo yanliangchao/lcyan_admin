@@ -9,8 +9,10 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 /**
- * @author Zheng Jie
- * 翻译工具类
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 14:03
+ * @email liangchao.yan-ext@yanfeng.com
  */
 public class TranslatorUtil {
 

@@ -6,27 +6,26 @@ import com.lcyan.admin.app.boot.security.service.dto.JwtUserDto;
 import com.lcyan.admin.app.service.system.service.RoleService;
 import com.lcyan.admin.app.service.system.service.UserService;
 import com.lcyan.admin.app.service.system.service.dto.UserDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-22
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @Service("userDetailsService")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private final UserService userService;
-
-    private final RoleService roleService;
-
-    public UserDetailsServiceImpl(UserService userService, RoleService roleService) {
-        this.userService = userService;
-        this.roleService = roleService;
-    }
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private RoleService roleService;
 
     @Override
     public JwtUserDto loadUserByUsername(String username){

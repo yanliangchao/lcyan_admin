@@ -10,8 +10,10 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.Set;
 
 /**
- * @author Zheng Jie
- * @date 2018-12-03
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
  */
 @SuppressWarnings("all")
 public interface RoleRepository extends JpaRepository<Role, Long>, JpaSpecificationExecutor<Role> {

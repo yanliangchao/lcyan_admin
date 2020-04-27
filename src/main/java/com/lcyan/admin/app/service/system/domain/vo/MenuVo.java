@@ -6,11 +6,15 @@ import lombok.Data;
 import java.io.Serializable;
 import java.util.List;
 
+
 /**
- * 构建前端路由时用到
- * @author Zheng Jie
- * @date 2018-12-20
+ * @author Yan Liangchao
+ * @version 1.0
+ * @date 2020/4/20 16:35
+ * @email liangchao.yan-ext@yanfeng.com
+ * 构建前端路由时候用到
  */
+
 @Data
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class MenuVo implements Serializable {
