@@ -1,6 +1,7 @@
 package com.lcyan.admin.app.boot.security.rest;
 
 import cn.hutool.core.util.IdUtil;
+import cn.hutool.crypto.asymmetric.KeyType;
 import cn.hutool.crypto.asymmetric.RSA;
 import com.lcyan.admin.app.boot.common.annotation.AnonymousAccess;
 import com.lcyan.admin.app.boot.common.exception.BadRequestException;
@@ -74,7 +75,7 @@ public class AuthorizationController {
     public ResponseEntity<Object> login(@Validated @RequestBody AuthUserDto authUser, HttpServletRequest request){
         // 密码解密
         RSA rsa = new RSA(privateKey, null);
-        String password = authUser.getPassword();//new String(rsa.decrypt(authUser.getPassword(), KeyType.PrivateKey));
+        String password = new String(rsa.decrypt(authUser.getPassword(), KeyType.PrivateKey));
         // 查询验证码
         String code = (String) redisUtils.get(authUser.getUuid());
         // 清除验证码
