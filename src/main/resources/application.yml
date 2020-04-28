@@ -47,6 +47,9 @@ jwt:
   # 验证码
   code-key: code-key
 
+kubernetes:
+  address: https://172.31.6.164:6443
+  token: 0
 #邮箱验证码有效时间/分钟
 code:
   expiration: 5

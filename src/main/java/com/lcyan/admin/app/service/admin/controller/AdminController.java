@@ -1,16 +1,15 @@
 package com.lcyan.admin.app.service.admin.controller;
 
 
+import com.lcyan.admin.app.boot.restTemplate.method.Http;
 import com.lcyan.admin.app.boot.restultUtils.ResponseDTO;
 import com.lcyan.admin.app.service.admin.domain.AdminModel;
 import com.lcyan.admin.app.service.admin.service.AdminService;
-import io.kubernetes.client.ApiException;
-import io.kubernetes.client.apis.CoreV1Api;
-import io.kubernetes.client.models.V1PodList;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +22,9 @@ public class AdminController {
 
     @Autowired
     private AdminService adminService;
+
+    @Autowired
+    private Http http;
 
     @ApiOperation(value = "获取admin", notes="通过infi获取admin")
     //@ApiImplicitParam(name = "info", value = "字符串", paramType = "query", required = true, dataType = "String")
@@ -48,18 +50,9 @@ public class AdminController {
     //@ApiImplicitParam(name = "info", value = "字符串", paramType = "query", required = true, dataType = "String")
     @RequestMapping(value = "getAllPods", method= RequestMethod.GET)
     @ResponseBody
-    public V1PodList getAllPods() {
-        CoreV1Api apiInstance = new CoreV1Api();
-
-        V1PodList v1PodList = null;
-        try {
-            v1PodList = apiInstance.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null);
-        } catch (ApiException e) {
-            e.printStackTrace();
-        }
-        //Gson gson = new Gson();
-        //String list = gson.toJson(v1PodList);
-        //System.out.println(v1PodList);
-        return v1PodList;
+    public String getAllPods() {
+        ResponseEntity<String> stringResponseEntity = http.get("/", String.class);
+        System.out.println(stringResponseEntity.getBody());
+        return stringResponseEntity.getBody();
     }
 }
