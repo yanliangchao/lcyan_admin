@@ -1,7 +1,7 @@
 package com.lcyan.admin.app.service.admin.controller;
 
 
-import com.lcyan.admin.app.boot.restTemplate.method.Http;
+import com.lcyan.admin.app.boot.restTemplate.method.HttpClient;
 import com.lcyan.admin.app.boot.restultUtils.ResponseDTO;
 import com.lcyan.admin.app.service.admin.domain.AdminModel;
 import com.lcyan.admin.app.service.admin.service.AdminService;
@@ -24,7 +24,7 @@ public class AdminController {
     private AdminService adminService;
 
     @Autowired
-    private Http http;
+    private HttpClient httpClient;
 
     @ApiOperation(value = "获取admin", notes="通过infi获取admin")
     //@ApiImplicitParam(name = "info", value = "字符串", paramType = "query", required = true, dataType = "String")
@@ -51,7 +51,17 @@ public class AdminController {
     @RequestMapping(value = "getAllPods", method= RequestMethod.GET)
     @ResponseBody
     public String getAllPods() {
-        ResponseEntity<String> stringResponseEntity = http.get("/", String.class);
+         String yaml = "kind: Scale\n" +
+                 "apiVersion: autoscaling/v1\n" +
+                 "metadata:\n" +
+                 "  name: yf-mdc\n" +
+                 "  namespace: default\n" +
+                 "spec:\n" +
+                 "  replicas: 1\n" +
+                 "status:\n" +
+                 "  replicas: 1\n" +
+                 "  selector: k8s-app=yf-mdc";
+        ResponseEntity<String> stringResponseEntity = httpClient.put("/apis/apps/v1/namespaces/default/deployments/yf-mdc/scale", yaml, String.class);
         System.out.println(stringResponseEntity.getBody());
         return stringResponseEntity.getBody();
     }

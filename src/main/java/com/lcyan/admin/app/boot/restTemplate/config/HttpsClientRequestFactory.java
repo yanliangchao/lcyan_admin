@@ -126,6 +126,7 @@ public class HttpsClientRequestFactory extends SimpleClientHttpRequestFactory {
             if (!(socket instanceof SSLSocket)) {
                 throw new RuntimeException("An instance of SSLSocket is expected");
             }
+            //可能需要修改的地方
             ((SSLSocket) socket).setEnabledProtocols(new String[]{"TLSv1.2"});
             return socket;
         }

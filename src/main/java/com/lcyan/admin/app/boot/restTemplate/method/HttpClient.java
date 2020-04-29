@@ -20,7 +20,7 @@ import java.net.URISyntaxException;
  */
 @Slf4j
 @Component
-public class Http {
+public class HttpClient {
 
     @Autowired
     private RestTemplate restTemplate;
@@ -53,7 +53,8 @@ public class Http {
         log.info("请求地址: {}", uri);
         try {
             requestEntity = RequestEntity.post(new URI(uri))
-                    .header("Authorization", "Basic " + token)
+                    //.header("Authorization", "Basic " + token)
+                    .header("Content-Type", "application/yaml")
                     .body(requestBody);
         } catch (URISyntaxException e) {
             e.printStackTrace();
@@ -68,7 +69,24 @@ public class Http {
         log.info("请求地址: {}", uri);
         try {
             requestEntity = RequestEntity.put(new URI(uri))
-                    .header("Authorization", "Basic " + token)
+                    //.header("Authorization", "Basic " + token)
+                    .header("Content-Type", "application/yaml")
+                    .body(requestBody);
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        return this.restTemplate.exchange(requestEntity, responseType);
+    }
+
+    public <T> ResponseEntity<T> patch(String path, String requestBody, Class<T> responseType){
+        // 3-exchange()
+        RequestEntity requestEntity = null;
+        String uri = address + path;
+        log.info("请求地址: {}", uri);
+        try {
+            requestEntity = RequestEntity.patch(new URI(uri))
+                    //.header("Authorization", "Basic " + token)
+                    .header("Content-Type", "application/yaml")
                     .body(requestBody);
         } catch (URISyntaxException e) {
             e.printStackTrace();
