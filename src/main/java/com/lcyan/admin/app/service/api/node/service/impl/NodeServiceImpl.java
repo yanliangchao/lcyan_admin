@@ -32,7 +32,7 @@ public class NodeServiceImpl implements NodeService {
     private HttpClient httpClient;
 
     @Override
-    public ResponseDTO getNode() {
+    public ResponseDTO getNodeList() {
         ResponseEntity<String> stringResponseEntity = httpClient.get("/api/v1/nodes", String.class);
         if(stringResponseEntity.getStatusCode() != HttpStatus.OK){
             return ResponseDTO.error().message("接口请求失败").code(stringResponseEntity.getStatusCodeValue());
@@ -118,5 +118,10 @@ public class NodeServiceImpl implements NodeService {
         }
         //System.out.println(item);
         return ResponseDTO.ok().message("获取全部node").data("nodes",nodeList);
+    }
+
+    @Override
+    public ResponseDTO getNode(String selfLink) {
+        return null;
     }
 }

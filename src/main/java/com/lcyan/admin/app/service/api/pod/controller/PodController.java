@@ -22,8 +22,8 @@ public class PodController {
     @Autowired
     private PodService podService;
 
-    @ApiOperation("获取全部Nodes")
-    @Log("获取全部Nodes")
+    @ApiOperation("获取全部pods")
+    @Log("获取全部pods")
     @GetMapping("{namespaces}")
     @ResponseBody
     public ResponseDTO getPodList(@PathVariable("namespaces") String namespaces){

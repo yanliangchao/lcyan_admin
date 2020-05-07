@@ -101,7 +101,8 @@ public class HttpClient {
         log.info("请求地址: {}", uri);
         try {
             requestEntity = RequestEntity.delete(new URI(uri))
-                    .header("Authorization", "Basic " + token)
+                    //.header("Authorization", "Basic " + token)
+                    .header("Content-Type", "application/yaml")
                     .build();
         } catch (URISyntaxException e) {
             e.printStackTrace();

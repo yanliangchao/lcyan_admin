@@ -14,5 +14,12 @@ public interface NodeService {
      * 查询全部Node
      * @return
      */
-    ResponseDTO getNode();
+    ResponseDTO getNodeList();
+
+    /**
+     * 查询node详细信息
+     * @param selfLink
+     * @return
+     */
+    ResponseDTO getNode(String selfLink);
 }

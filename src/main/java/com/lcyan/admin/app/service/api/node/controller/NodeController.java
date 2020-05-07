@@ -6,10 +6,7 @@ import com.lcyan.admin.app.service.api.node.service.NodeService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author Yan Liangchao
@@ -29,8 +26,17 @@ public class NodeController {
     @Log("获取全部Nodes")
     @GetMapping
     @ResponseBody
-    public ResponseDTO getNode(){
+    public ResponseDTO getNodeList(){
 
-        return nodeService.getNode();
+        return nodeService.getNodeList();
+    }
+
+    @ApiOperation("获取Node详细信息")
+    @Log("获取全部Nodes")
+    @GetMapping("{selfLink}")
+    @ResponseBody
+    public ResponseDTO getNode(@PathVariable("selfLink") String selfLink){
+
+        return nodeService.getNode(selfLink);
     }
 }
