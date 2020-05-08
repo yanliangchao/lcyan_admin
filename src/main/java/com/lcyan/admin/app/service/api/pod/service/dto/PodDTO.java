@@ -19,5 +19,6 @@ public class PodDTO implements Serializable {
     private String node;
     private String status;
     private String restarts;
+    private String images;
     private Long age;
 }

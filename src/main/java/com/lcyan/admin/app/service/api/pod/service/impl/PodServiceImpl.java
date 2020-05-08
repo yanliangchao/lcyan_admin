@@ -71,6 +71,8 @@ public class PodServiceImpl implements PodService {
             if(ObjectUtils.isNotEmpty(containerStatuses)){
                 String restarts = containerStatuses.getJSONObject(0).getString("restartCount");
                 podDTO.setRestarts(restarts);
+                String image = containerStatuses.getJSONObject(0).getString("image");
+                podDTO.setImages(image);
             }
             Date date = itemJson.getJSONObject("metadata").getDate("creationTimestamp");
             long dates = new Date().getTime() - date.getTime();
