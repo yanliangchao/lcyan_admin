@@ -31,4 +31,13 @@ public class PodController {
         return podService.getPodList(namespaces);
     }
 
+    @ApiOperation("删除pods")
+    @Log("删除podspods")
+    @DeleteMapping("{namespaces}/{pod}")
+    @ResponseBody
+    public ResponseDTO deletePod(@PathVariable("namespaces") String namespaces, @PathVariable("pod") String pod){
+
+        return podService.deletePod(namespaces,pod);
+    }
+
 }

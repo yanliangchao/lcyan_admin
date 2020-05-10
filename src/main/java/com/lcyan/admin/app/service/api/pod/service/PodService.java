@@ -10,5 +10,18 @@ import com.lcyan.admin.app.boot.restultUtils.ResponseDTO;
  */
 public interface PodService {
 
+    /**
+     * 获取全部pods
+     * @param namespaces
+     * @return
+     */
     ResponseDTO getPodList(String namespaces);
+
+    /**
+     * 删除pods
+     * @param namespaces
+     * @param pod
+     * @return
+     */
+    ResponseDTO deletePod(String namespaces, String pod);
 }

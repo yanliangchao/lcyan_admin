@@ -63,6 +63,8 @@ public class PodServiceImpl implements PodService {
             podDTO.setName(name);
             String selfLink = itemJson.getJSONObject("metadata").getString("selfLink");
             podDTO.setSelfLink(selfLink);
+            String namespace = itemJson.getJSONObject("metadata").getString("namespace");
+            podDTO.setNamespaces(namespace);
             String node = itemJson.getJSONObject("spec").getString("nodeName");
             podDTO.setNode(node);
             String status = itemJson.getJSONObject("status").getString("phase");
@@ -81,5 +83,16 @@ public class PodServiceImpl implements PodService {
             podList.add(podDTO);
         }
         return ResponseDTO.ok().message("获取指定命名空间里的pod").data("pods",podList);
+    }
+
+    @Override
+    public ResponseDTO deletePod(String namespaces, String pod) {
+        String path = "/api/v1/namespaces/" + namespaces + "/pods/" + pod;
+
+        ResponseEntity<String> delete = httpClient.delete(path, null, String.class);
+        if(delete.getStatusCode() != HttpStatus.OK){
+            return ResponseDTO.error().message("pod删除失败").code(delete.getStatusCodeValue());
+        }
+        return ResponseDTO.ok().code(delete.getStatusCodeValue()).message("pod删除成功");
     }
 }

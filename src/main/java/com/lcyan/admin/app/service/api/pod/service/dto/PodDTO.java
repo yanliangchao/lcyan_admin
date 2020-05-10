@@ -16,6 +16,7 @@ public class PodDTO implements Serializable {
     private Long id;
     private String name;
     private String selfLink;
+    private String namespaces;
     private String node;
     private String status;
     private String restarts;

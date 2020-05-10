@@ -43,9 +43,9 @@ public class NamespacesController {
 
     @ApiOperation("删除Namespaces")
     @Log("删除Namespaces")
-    @DeleteMapping
+    @DeleteMapping("{namespaces}")
     @ResponseBody
-    public ResponseDTO deleteNamespaces(@Validated @RequestBody String namespaces) {
+    public ResponseDTO deleteNamespaces(@PathVariable String namespaces) {
 
         return namespacesService.deleteNamespaces(namespaces);
     }
